@@ -30,8 +30,8 @@ public class ProfesionController {
     // REMOVE   /profesion/destroy?={id}
 
     @GetMapping("/show")
-    public Profesion showProfesion(@RequestParam long id){
-        return profesionRepository.findById(id).orElseThrow(() -> new RuntimeException("No se encontro la profesion"));
+    public ProfesionRecord showProfesion(@RequestParam long id){
+        return profesionService.show(id);
     }
 
     @PostMapping("/create")
@@ -41,7 +41,7 @@ public class ProfesionController {
     }
     
     @DeleteMapping("/destroy")
-    public void deleteProfesion(@RequestParam long id){
+    public void deleteProfesion(@RequestParam Long id){
         profesionRepository.deleteById(id);
     }
     

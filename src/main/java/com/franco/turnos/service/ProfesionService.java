@@ -30,8 +30,21 @@ public class ProfesionService {
         Profesion profesion;
 
         profesion = validate(record);
+        profesionRepository.save(profesion);
 
         return profesion.getId();
+    }
+
+    public ProfesionRecord show(Long id){
+        Profesion profesion = profesionRepository.findById(id).orElseThrow(() -> new RuntimeException("No se encontro la profesion"));
+        Profesion padre = profesion.getPadre();
+        Long padreId;
+        if (padre == null){
+            padreId = 0L;
+        } else {
+            padreId = padre.getId();
+        }
+        return new ProfesionRecord(profesion.getNombre(), padreId);
     }
     
 }
