@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.franco.turnos.dto.ProfesionRecord;
-import com.franco.turnos.model.Profesion;
 import com.franco.turnos.repository.ProfesionRepository;
 import com.franco.turnos.service.ProfesionService;
 

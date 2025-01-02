@@ -38,5 +38,10 @@ public class ProfesionalService {
 
         return profesional.getId();
     }
+
+    public ProfesionalRecord show(Long id){
+        Profesional profesional = profesionalRepository.findById(id).orElseThrow(() -> new RuntimeException("No se encontro el profesional"));
+        return new ProfesionalRecord(profesional.getNombre(), profesional.getApellido(), profesional.getProfesion().getId());
+    }
     
 }
