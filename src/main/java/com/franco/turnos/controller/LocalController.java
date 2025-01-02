@@ -27,17 +27,17 @@ public class LocalController {
     // REMOVE   /local/destroy?={id}
 
     @GetMapping("/show")
-    public LocalRecord showProfesion(@RequestParam long id){
+    public LocalRecord showLocal(@RequestParam long id){
         return localService.show(id);
     }
 
     @PostMapping("/create")
-    public long createProfesion(@RequestBody LocalRecord profesion){
+    public long createLocal(@RequestBody LocalRecord profesion){
         return localService.create(profesion);
     }
     
     @DeleteMapping("/destroy")
-    public void deleteProfesion(@RequestParam Long id){
+    public void deleteLocal(@RequestParam Long id){
         localRepository.deleteById(id);
     }
     
